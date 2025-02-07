@@ -1,0 +1,48 @@
+<PrivyProvider 
+  appId="your-privy-app-id"
+  config={{
+  "appearance": {
+    "accentColor": "#EF8977",
+    "theme": "#222224",
+    "showWalletLoginFirst": true,
+    "logo": "https://auth.privy.io/logos/privy-logo-dark.png",
+    "walletChainType": "ethereum-only",
+    "walletList": [
+      "detected_wallets",
+      "phantom",
+      "solflare",
+      "backpack",
+      "okx_wallet"
+    ]
+  },
+  "loginMethods": [
+    "wallet"
+  ],
+  "fundingMethodConfig": {
+    "moonpay": {
+      "useSandbox": true
+    }
+  },
+  "embeddedWallets": {
+    "createOnLogin": "off",
+    "requireUserPasswordOnCreate": false,
+    "showWalletUIs": true,
+    "ethereum": {
+      "createOnLogin": "users-without-wallets"
+    },
+    "solana": {
+      "createOnLogin": "off"
+    }
+  },
+  "mfa": {
+    "noPromptOnMfaRequired": false
+  },
+  "externalWallets": {
+    "solana": {
+      "connectors": {}
+    }
+  }
+}}
+>
+  {children}
+</PrivyProvider>

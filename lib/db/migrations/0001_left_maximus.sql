@@ -1,0 +1,1 @@
+ALTER TABLE "document" ADD CONSTRAINT "document_id_createdAt_unique" UNIQUE("id","createdAt");

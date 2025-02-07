@@ -1,0 +1,431 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer base {
+    :root {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --radius: 0.5rem;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+        --font-geist-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-geist-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-[hsl(var(--border))];
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-geist-sans);
+    }
+
+    @font-face {
+        font-family: "monument";
+        font-style: normal;
+        font-weight: 800;
+        src: url(/fonts/MonumentExtended-Regular.woff2) format("woff2");
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "geist";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url(/fonts/geist.woff2) format("woff2");
+    }
+
+    @font-face {
+        font-family: "geist-mono";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url(/fonts/geist-mono.woff2) format("woff2");
+    }
+
+    pre,
+    code {
+        font-family: var(--font-geist-mono);
+    }
+}
+
+.skeleton {
+    * {
+        pointer-events: none !important;
+    }
+
+    *[class^="text-"] {
+        color: transparent;
+        @apply rounded-md bg-foreground/20 select-none animate-pulse;
+    }
+
+    .skeleton-bg {
+        @apply bg-foreground/10;
+    }
+
+    .skeleton-div {
+        @apply bg-foreground/20 animate-pulse;
+    }
+}
+
+.ProseMirror {
+    outline: none;
+}
+
+.cm-editor,
+.cm-gutters {
+    @apply bg-background bg-zinc-800 outline-none selection:bg-zinc-900 !important;
+}
+
+.ͼo.cm-focused>.cm-scroller>.cm-selectionLayer .cm-selectionBackground,
+.ͼo.cm-selectionBackground,
+.ͼo.cm-content::selection {
+    @apply bg-zinc-900 !important;
+}
+
+.cm-activeLine,
+.cm-activeLineGutter {
+    @apply bg-transparent !important;
+}
+
+.cm-activeLine {
+    @apply rounded-r-sm !important;
+}
+
+.cm-lineNumbers {
+    @apply min-w-7;
+}
+
+.cm-foldGutter {
+    @apply min-w-3;
+}
+
+.cm-lineNumbers .cm-activeLineGutter {
+    @apply rounded-l-sm !important;
+}
+
+.suggestion-highlight {
+    @apply bg-blue-500/40 text-blue-50 hover:bg-blue-400/50;
+}
+
+.starfield {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.starfield span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.1);
+    animation: starfieldRotate 60s linear infinite;
+}
+
+.starfield span:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.starfield span:nth-child(2) {
+    top: 25%;
+    right: 25%;
+    animation-delay: -15s;
+}
+
+.starfield span:nth-child(3) {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: -30s;
+}
+
+.starfield span:nth-child(4) {
+    bottom: 25%;
+    right: 25%;
+    animation-delay: -45s;
+}
+
+.starfield span:nth-child(5) {
+    top: 15%;
+    left: 50%;
+    animation-delay: -10s;
+}
+
+.starfield span:nth-child(6) {
+    top: 50%;
+    left: 15%;
+    animation-delay: -25s;
+}
+
+.starfield span:nth-child(7) {
+    top: 50%;
+    right: 15%;
+    animation-delay: -35s;
+}
+
+.starfield span:nth-child(8) {
+    bottom: 15%;
+    left: 50%;
+    animation-delay: -40s;
+}
+
+.starfield span:nth-child(9) {
+    top: 50%;
+    left: 50%;
+    animation-delay: -20s;
+}
+
+.starfield span:nth-child(10) {
+    top: 35%;
+    left: 35%;
+    animation-delay: -5s;
+}
+
+.starfield span:nth-child(11) {
+    bottom: 35%;
+    right: 35%;
+    animation-delay: -50s;
+}
+
+.starfield span:nth-child(12) {
+    bottom: 50%;
+    right: 50%;
+    animation-delay: -55s;
+}
+
+/* Additional star positions */
+.starfield span:nth-child(13) {
+    top: 10%;
+    left: 10%;
+    animation-delay: -8s;
+}
+
+.starfield span:nth-child(14) {
+    top: 10%;
+    right: 10%;
+    animation-delay: -13s;
+}
+
+.starfield span:nth-child(15) {
+    bottom: 10%;
+    left: 10%;
+    animation-delay: -18s;
+}
+
+.starfield span:nth-child(16) {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: -23s;
+}
+
+.starfield span:nth-child(17) {
+    top: 30%;
+    left: 70%;
+    animation-delay: -28s;
+}
+
+.starfield span:nth-child(18) {
+    top: 70%;
+    left: 30%;
+    animation-delay: -33s;
+}
+
+.starfield span:nth-child(19) {
+    top: 20%;
+    left: 80%;
+    animation-delay: -38s;
+}
+
+.starfield span:nth-child(20) {
+    top: 80%;
+    left: 20%;
+    animation-delay: -43s;
+}
+
+.starfield span:nth-child(21) {
+    top: 40%;
+    left: 60%;
+    animation-delay: -48s;
+}
+
+.starfield span:nth-child(22) {
+    top: 60%;
+    left: 40%;
+    animation-delay: -53s;
+}
+
+.starfield span:nth-child(23) {
+    top: 45%;
+    left: 75%;
+    animation-delay: -58s;
+}
+
+.starfield span:nth-child(24) {
+    top: 75%;
+    left: 45%;
+    animation-delay: -3s;
+}
+
+.starfield span:nth-child(25) {
+    top: 85%;
+    left: 15%;
+    animation-delay: -7s;
+}
+
+.starfield span:nth-child(26) {
+    top: 15%;
+    left: 85%;
+    animation-delay: -12s;
+}
+
+.starfield span:nth-child(27) {
+    top: 65%;
+    left: 35%;
+    animation-delay: -17s;
+}
+
+.starfield span:nth-child(28) {
+    top: 35%;
+    left: 65%;
+    animation-delay: -22s;
+}
+
+.starfield span:nth-child(29) {
+    top: 55%;
+    left: 25%;
+    animation-delay: -27s;
+}
+
+.starfield span:nth-child(30) {
+    top: 25%;
+    left: 55%;
+    animation-delay: -32s;
+}
+
+.starfield span:nth-child(31) {
+    top: 45%;
+    left: 85%;
+    animation-delay: -37s;
+}
+
+.starfield span:nth-child(32) {
+    top: 85%;
+    left: 45%;
+    animation-delay: -42s;
+}
+
+@keyframes starfieldRotate {
+    from {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
+}
+
+/* Card Animation Styles */
+.card {
+    perspective: 1000px;
+}
+
+.card-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    animation: floating 3s infinite ease-in-out;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+#card-1 .card-wrapper {
+    animation-delay: 0;
+}
+
+#card-2 .card-wrapper {
+    animation-delay: 0.2s;
+}
+
+#card-3 .card-wrapper {
+    animation-delay: 0.4s;
+}
+
+#card-4 .card-wrapper {
+    animation-delay: 0.6s;
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -60%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
